@@ -28,7 +28,7 @@ public class BallManager : MonoBehaviour
     public bool usingBM;
 
 
-    public float force = 500;
+    public float force;
     public float height = 100;
     public float xOffset = 2.5f;
     public float zOffset = 2.5f;
