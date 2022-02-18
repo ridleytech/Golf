@@ -36,15 +36,16 @@ public class Ball : MonoBehaviour {
     private void Update()
     {
         //print("h: "+gameObject.transform.position.y);
+        //print("_rb.velocity.magnitude: " + _rb.velocity.magnitude);
 
         if (!peaked && gameObject.transform.position.y > 15) {
-
+            //print("has peaked");
             peaked = true;
         }
 
         if (peaked && gameObject.transform.position.y < 15 && cannon.isShot) {
-            print("show fall cam");
-            fallCam.depth = 2;
+            //print("show fall cam");
+            //fallCam.depth = 2;
         }
 
         fallCam.transform.LookAt(gameObject.transform);
@@ -54,12 +55,11 @@ public class Ball : MonoBehaviour {
             distanceTxt.text = (int)distance + " yds";
         }
 
-        if (_rb.velocity.magnitude == 0 && cannon.isShot)
+        if (_rb.velocity.magnitude == 0 && cannon.isShot && peaked)
         {
             cannon.isShot = false;
-            print("ball stopped");
+            //print("ball stopped");
             fallCam.depth = -1;
         }
-
     }
 }
